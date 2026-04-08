@@ -1,0 +1,117 @@
+{
+  "version": "phase8-default-v1",
+  "packs": [
+    {
+      "name": "generic_en",
+      "priority": 30,
+      "strict_patterns": [
+        ["\\bfor[_\\s-]?us\\b", "for_us", "mate_for_us"],
+        ["\\bmate[_\\s-]?for[_\\s-]?us\\b", "for_us", "mate_for_us"],
+        ["\\bin\\s+(\\d+)\\s+we\\s+mate\\b", "for_us", "mate_for_us"],
+        ["\\bfor[_\\s-]?them\\b", "for_them", "mate_for_them"],
+        ["\\bmate[_\\s-]?for[_\\s-]?them\\b", "for_them", "mate_for_them"],
+        ["\\bour[_\\s-]?king[_\\s-]?mated\\b", "for_them", "mate_for_them"],
+        ["\\bmated\\s+in\\s+(\\d+)\\b", "for_them", "mate_for_them"]
+      ],
+      "loose_patterns": [
+        ["\\bmate\\b", "for_us", "mate_hint"],
+        ["\\bcheckmate\\b", "for_us", "mate_hint"],
+        ["\\bwin\\b", "for_us", "mate_hint"],
+        ["\\bfound\\b", "for_us", "mate_hint"],
+        ["\\bmated\\b", "for_them", "mated_hint"],
+        ["\\blose\\b", "for_them", "mated_hint"],
+        ["\\blost\\b", "for_them", "mated_hint"]
+      ],
+      "distance_patterns": [
+        ["\\bin\\s+(\\d+)\\b", "in"],
+        ["\\bmate\\s+(\\d+)\\b", "mate"],
+        ["\\b(\\d+)\\s*ply\\b", "ply"],
+        ["\\b(\\d+)\\s*plies\\b", "plies"]
+      ],
+      "negation_patterns": [
+        ["\\bnot[_\\s-]?found\\b", "no_mate"],
+        ["\\bno[_\\s-]?mate\\b", "no_mate"],
+        ["\\bmate[_\\s-]?none\\b", "no_mate"],
+        ["\\bunsolved\\b", "no_mate"],
+        ["\\bunknown\\b", "no_mate_hint"]
+      ],
+      "source_detail_map": {
+        "mate_for_us": "mate_for_us",
+        "mate_for_them": "mate_for_them",
+        "no_mate": "no_mate",
+        "mate_hint": "mate_hint",
+        "mated_hint": "mated_hint",
+        "no_mate_hint": "no_mate_hint"
+      }
+    },
+    {
+      "name": "generic_ja",
+      "priority": 20,
+      "strict_patterns": [
+        ["詰みあり", "for_us", "mate_for_us"],
+        ["詰み\\s*有り", "for_us", "mate_for_us"],
+        ["詰まし", "for_us", "mate_for_us"],
+        ["詰まされ", "for_them", "mate_for_them"]
+      ],
+      "loose_patterns": [
+        ["詰み", "for_us", "mate_hint"],
+        ["勝ち", "for_us", "mate_hint"],
+        ["負け", "for_them", "mated_hint"],
+        ["不利", "for_them", "mated_hint"]
+      ],
+      "distance_patterns": [
+        ["(\\d+)\\s*手", "te"],
+        ["\\b(\\d+)\\s*ply\\b", "ply"]
+      ],
+      "negation_patterns": [
+        ["不詰", "no_mate"],
+        ["詰みなし", "no_mate"],
+        ["不明", "no_mate_hint"]
+      ]
+    },
+    {
+      "name": "legacy_cli",
+      "priority": 10,
+      "strict_patterns": [
+        ["\\bresult\\s*[:=]\\s*win\\b", "for_us", "mate_for_us"],
+        ["\\bstatus\\s*[:=]\\s*mate\\b", "for_us", "mate_for_us"],
+        ["\\bresult\\s*[:=]\\s*lose\\b", "for_them", "mate_for_them"],
+        ["\\bstatus\\s*[:=]\\s*mated\\b", "for_them", "mate_for_them"]
+      ],
+      "loose_patterns": [
+        ["\\bwin\\b", "for_us", "mate_hint"],
+        ["\\blose\\b", "for_them", "mated_hint"]
+      ],
+      "distance_patterns": [
+        ["\\bply\\s*[:=]\\s*(\\d+)\\b", "ply"],
+        ["\\bmate\\s*[:=]\\s*(\\d+)\\b", "mate"]
+      ],
+      "negation_patterns": [
+        ["\\bstatus\\s*[:=]\\s*nomate\\b", "no_mate"],
+        ["\\bresult\\s*[:=]\\s*unknown\\b", "no_mate_hint"]
+      ]
+    },
+    {
+      "name": "compact",
+      "priority": 5,
+      "strict_patterns": [
+        ["\\bw\\+(\\d+)?\\b", "for_us", "mate_for_us"],
+        ["\\bl\\+(\\d+)?\\b", "for_them", "mate_for_them"],
+        ["\\bmate\\+\\s*(\\d+)\\b", "for_us", "mate_for_us"],
+        ["\\bmated\\+\\s*(\\d+)\\b", "for_them", "mate_for_them"]
+      ],
+      "loose_patterns": [
+        ["\\bw\\b", "for_us", "mate_hint"],
+        ["\\bl\\b", "for_them", "mated_hint"]
+      ],
+      "distance_patterns": [
+        ["[wl]\\+(\\d+)", "compact"],
+        ["\\+(\\d+)", "compact"]
+      ],
+      "negation_patterns": [
+        ["\\bn\\b", "no_mate"],
+        ["\\b0\\b", "no_mate_hint"]
+      ]
+    }
+  ]
+}
