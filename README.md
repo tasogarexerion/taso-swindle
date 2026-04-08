@@ -8,6 +8,29 @@ It keeps USI compatibility while selecting moves by REV (Reversal Expectation Va
 - Python 3.11+
 - Backend USI engine executable (YaneuraOu family expected)
 
+## Backend assets
+
+This repository does not include `eval/nn.bin`.
+
+Prepare the runtime assets like this:
+
+1. Place a YaneuraOu-family backend executable at a path such as `./YaneuraOu`.
+2. Prepare an `eval` directory that contains `nn.bin`.
+3. Point TASO-SWINDLE to them with either:
+   - `setoption name BackendEnginePath value /absolute/path/to/YaneuraOu`
+   - `setoption name BackendEngineArgs value -eval /absolute/path/to/eval`
+4. If you use the bundled launcher, keep `YaneuraOu` and `eval/nn.bin` next to the launcher.
+
+Expected layout example:
+
+```text
+project/
+  YaneuraOu
+  eval/
+    nn.bin
+  launch_taso_swindle.command
+```
+
 ## Project Rules
 
 - 外部からの棋譜取得は禁止
