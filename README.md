@@ -31,19 +31,6 @@ project/
   launch_taso_swindle.command
 ```
 
-## Project Rules
-
-- 外部からの棋譜取得は禁止
-  - `scripts/extract_shogi_extend_user_kifu.py`
-  - `scripts/collect_shogi_extend_highdan_corpus.py`
-  - 上記は実行時にポリシーで停止します（ローカル棋譜のみ利用）
-- 学習サンプル内の個人情報は匿名化
-  - `scripts/build_training_labels.py` は既定で `game_id*` / `source_log_path` を匿名化して出力します
-  - 必要に応じて `--anonymize-salt` で匿名化トークンの塩を指定できます
-- 学習データは個人使用のみを前提（外部公開しない）
-  - `scripts/run_learning_pipeline.py` の summary に `compliance_mode=personal_use_only` を出力します
-  - 既存データの再匿名化は `scripts/redact_jsonl_pii.py` を使用します
-
 ## Launch
 
 ```bash
