@@ -37,6 +37,31 @@ project/
 python3 -m taso_swindle.main
 ```
 
+## 導入手順
+
+1. このリポジトリを取得する。
+2. バックエンド用に `YaneuraOu` 実行ファイルを用意する。
+3. `eval/nn.bin` を含む `eval/` ディレクトリを用意する。
+4. すぐ試すだけなら [launch_taso_swindle.command](/Users/taso/開発/逆転のメカニズム/launch_taso_swindle.command) と同じ場所に `YaneuraOu` と `eval/nn.bin` を置く。
+5. 将棋GUIからエンジン登録する場合は、起動ファイルとして `launch_taso_swindle.command` を指定するか、`python3 -m taso_swindle.main` を使う。
+6. GUI 側で最低限以下を設定する。
+   - `BackendEnginePath`
+   - `BackendEngineArgs` または `BackendEngineOptionPassthrough`
+   - 必要なら `SwindleHybridWeightsPath`
+7. `isready` が通ったら通常の USI エンジンとして利用できる。
+
+最小構成の例:
+
+```text
+TASO-SWINDLE/
+  launch_taso_swindle.command
+  YaneuraOu
+  eval/
+    nn.bin
+  models/
+    hybrid_weights.json
+```
+
 ## Minimum USI setup
 
 ```text

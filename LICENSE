@@ -1,0 +1,28 @@
+TASO-SWINDLE Source Code License
+
+Copyright (c) 2026 tasogarexerion
+All rights reserved.
+
+This repository contains the TASO-SWINDLE source code and related scripts.
+No permission is granted to use, copy, modify, merge, publish, distribute,
+sublicense, or sell this source code or substantial portions of it without
+prior written permission from the copyright holder.
+
+This license file applies only to original TASO-SWINDLE source code contained
+in this repository, unless a file states otherwise.
+
+Third-party engines, evaluation data, model files, binaries, and other assets
+are not covered by this license. Users are responsible for complying with the
+applicable upstream licenses and terms for those components.
+
+The repository and release materials may include setup instructions or wrapper
+code intended for personal/private use. No trademark rights, patent rights, or
+other intellectual property rights are granted by this notice.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
+OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
